@@ -3,7 +3,6 @@ import React from "react";
 function GamePlayer() {
   return (
     <div id="game-container">
-      <h1>SPARK</h1>
       <iframe
         id="game"
         title="Game"
@@ -20,8 +19,8 @@ function GamePlayer() {
         allowFullScreen="true"
         webkitallowfullscreen="true"
         allowtransparency="true"
-        height="540px"
-        width="960px"
+        height="1080px"
+        width="1920px"
       ></iframe>
     </div>
   );

@@ -10,8 +10,16 @@ html {
 
 body {
   margin: 0;
-  background-color: #3f3f3f;
+  background-color: var(--backgroundColor);
   padding: 0%;
+}
+
+:root {
+  --mainColor: #33130c;
+  --mainColorLight: #59261b;
+  --secondairyColor: #ff3608;
+  --textColor: white;
+  --backgroundColor: #150704;
 }
 
 /* GAME CONTAINER */
