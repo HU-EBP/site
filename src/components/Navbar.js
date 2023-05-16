@@ -7,7 +7,7 @@ import {
   FaSpeakap,
   FaTimes,
 } from "react-icons/fa";
-import "../components/navbar.css";
+import "../components/Navbar.css";
 
 function Navbar() {
   const navRef = useRef();
