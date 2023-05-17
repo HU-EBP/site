@@ -18,9 +18,9 @@ function Navbar() {
 
   return (
     <header>
-      <h3>Logo</h3>
-      <nav ref={navRef} aria-label="Main Navigation">
-        <a href="/#" aria-current="page">
+      <h3>Spark</h3>
+      <nav ref={navRef}>
+        <a href="/#">
           <FaHome /> Home
         </a>
         <a href="/#">

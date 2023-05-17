@@ -15,6 +15,10 @@ header {
   padding: 0 2rem;
   background-color: var(--mainColor);
   color: var(--textColor);
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  gap: 1rem;
 }
 
 nav a {
@@ -27,6 +31,18 @@ nav a:hover {
   color: var(--secondairyColor);
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+}
 header .nav-btn {
   padding: 5px;
   cursor: pointer;
@@ -61,7 +77,18 @@ header .nav-btn {
   }
 
   header .responsive_nav {
-    transform: none;
+    animation: showNav 0.5s forwards;
+  }
+
+  @keyframes showNav {
+    0% {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   nav .nav-close-btn {
@@ -74,4 +101,3 @@ header .nav-btn {
     font-size: 1.5rem;
   }
 }
-

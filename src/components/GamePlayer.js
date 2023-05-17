@@ -22,26 +22,20 @@ function GamePlayer() {
   } else
     return (
       <>
-        <h1 className="thegametitle">THE GAME</h1>
         <div id="game-container">
           {isMobile ? (
             <>
-              <div className="gameframe-mobile flex-center">
-                <h2>Spark is currently not available on mobile devices.</h2>
+              <h1 className="thegametitle">THE GAME</h1>
+              <div className="flex-center">
+                <div className="gameframe-mobile flex-center">
+                  <h2>Spark is currently not available on mobile devices.</h2>
+                </div>
               </div>
             </>
           ) : (
             <>
-              <div
-                className="game-container"
-                style={{
-                  position: "relative",
-                  paddingBottom: "56.25%",
-                  height: 0,
-                  overflow: "hidden",
-                  maxWidth: "100%",
-                }}
-              >
+              <h1 className="thegametitle">THE GAME</h1>
+              <div className="game-container">
                 <iframe
                   id="game"
                   title="Game"
@@ -53,13 +47,6 @@ function GamePlayer() {
                   allowFullScreen="true"
                   webkitallowfullscreen="true"
                   allowtransparency="true"
-                  style={{
-                    position: "absolute",
-                    top: "0",
-                    left: "0",
-                    width: "100%",
-                    height: "100%",
-                  }}
                 ></iframe>
               </div>
             </>
