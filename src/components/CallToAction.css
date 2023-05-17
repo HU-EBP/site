@@ -32,9 +32,11 @@
 }
 
 .playbutton:hover {
-  background-color: #3ea34f;
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
+
+  box-shadow: 4px 4px 4px #000;
 }
 
 .cta-flex h1 {

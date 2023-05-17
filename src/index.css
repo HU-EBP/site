@@ -25,20 +25,44 @@ body {
 }
 
 /* GAMEPLAYER */
-#game-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding-top: 56.25%;
+
+/* Loading... */
+.loader {
+  color: var(--textColor);
+  height: 100%;
+  font-size: 0.8rem;
 }
 
-#game-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+.gameframe-mobile {
+  color: var(--textColor);
+  text-align: center;
+  border: 1px solid var(--textColor);
+  margin: 0.5rem;
+}
+
+.gameframe-mobile h2 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 3rem;
+}
+
+.thegametitle {
+  color: var(--textColor);
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding: 1rem;
+}
+
+/* Classes */
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
