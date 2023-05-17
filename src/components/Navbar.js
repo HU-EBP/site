@@ -32,11 +32,19 @@ function Navbar() {
         <a href="/#">
           <FaSpeakap /> Forum
         </a>
-        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+        <button
+          className="nav-btn nav-close-btn"
+          onClick={showNavbar}
+          aria-label="Close Navigation"
+        >
           <FaTimes />
         </button>
       </nav>
-      <button className="nav-btn" onClick={showNavbar}>
+      <button
+        className="nav-btn"
+        onClick={showNavbar}
+        aria-label="Open Navigation"
+      >
         <FaBars />
       </button>
     </header>
