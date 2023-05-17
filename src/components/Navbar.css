@@ -27,6 +27,11 @@ nav a:hover {
   color: var(--secondairyColor);
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 header .nav-btn {
   padding: 5px;
   cursor: pointer;

@@ -28,7 +28,8 @@
   border: none;
   background-color: #51cf66;
   box-shadow: 2px 2px 2px #000;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  transition: 0.3s ease-in-out;
 }
 
 .playbutton:hover {
@@ -40,7 +41,18 @@
 }
 
 .cta-flex h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #fff;
   text-shadow: 3px 3px 3px #000;
+  transition: 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  .cta-flex h1 {
+    font-size: calc(3.5rem + 1vw);
+  }
+
+  .playbutton {
+    font-size: 1.2rem;
+  }
 }
