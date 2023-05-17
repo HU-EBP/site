@@ -7,13 +7,6 @@
   font-family: "Press Start 2P", cursive;
 }
 
-:root {
-  --mainColor: #33130c;
-  --mainColorLight: #59261b;
-  --secondairyColor: #ff3608;
-  --textColor: white;
-}
-
 header {
   display: flex;
   align-items: center;

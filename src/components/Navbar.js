@@ -36,7 +36,7 @@ function Navbar() {
           <FaTimes />
         </button>
       </nav>
-      <button lassName="nav-btn" onClick={showNavbar}>
+      <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
       </button>
     </header>
@@ -44,5 +44,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-// Test
