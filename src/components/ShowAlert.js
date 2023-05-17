@@ -7,7 +7,7 @@ function ShowAlert(props) {
       <div className="alert-container">
         <div className="textcontainer">
           <h2>{props.title}</h2>
-          <p>{props.desc}</p>
+          <p>{props.message}</p>
         </div>
         <p id="close-button" className="flex-center">
           X

@@ -4,7 +4,7 @@ import ShowAlert from "./ShowAlert";
 
 function Playbutton() {
   const [isMobile, setIsMobile] = useState(null);
-  const [showAlert, setShowAlert] = useState(false);
+  const [alert, setAlert] = useState(null);
 
   // Function to check if the user is on a mobile device
   useEffect(() => {
@@ -17,31 +17,36 @@ function Playbutton() {
 
   // Function to check if the user is on a mobile device and alert them if they are
   const playOrAlert = () => {
-    if (isMobile === true) {
-      setShowAlert(true);
+    if (isMobile) {
+      setAlert({
+        title: "Spark",
+        message: "is not available for mobile.",
+      });
     } else {
-      // Open the game in a new tab
-      window.open("https://hu-ebp.github.io/game/index.html", "_blank");
+      setAlert({
+        title: "Spark",
+        message: "Game is about to start.",
+      });
+      //   Set timeout to allow the user to read the alert
+      setTimeout(() => {
+        window.open("https://hu-ebp.github.io/game/index.html", "_blank");
+      }, 1000);
+
+      setTimeout(() => {
+        setAlert(false);
+      }, 5000);
     }
   };
 
   window.addEventListener("click", (e) => {
     if (e.target.id === "close-button") {
-      setShowAlert(false);
+      setAlert(false);
     }
   });
 
   return (
     <>
-      {showAlert ? (
-        <ShowAlert
-          title="Oh no!"
-          desc="This game is not available for mobile"
-        />
-      ) : (
-        ""
-      )}
-
+      {alert && <ShowAlert title={alert.title} message={alert.message} />}
       <button className="playbutton" onClick={playOrAlert}>
         Play
       </button>
