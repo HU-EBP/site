@@ -19,8 +19,8 @@ function Navbar() {
   return (
     <header>
       <h3>Logo</h3>
-      <nav ref={navRef}>
-        <a href="/#">
+      <nav ref={navRef} aria-label="Main Navigation">
+        <a href="/#" aria-current="page">
           <FaHome /> Home
         </a>
         <a href="/#">
@@ -32,11 +32,19 @@ function Navbar() {
         <a href="/#">
           <FaSpeakap /> Forum
         </a>
-        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+        <button
+          className="nav-btn nav-close-btn"
+          onClick={showNavbar}
+          aria-label="Close Navigation"
+        >
           <FaTimes />
         </button>
       </nav>
-      <button className="nav-btn" onClick={showNavbar}>
+      <button
+        className="nav-btn"
+        onClick={showNavbar}
+        aria-label="Open Navigation"
+      >
         <FaBars />
       </button>
     </header>
