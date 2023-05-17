@@ -1,0 +1,55 @@
+.alert {
+  padding: 15px;
+  width: 90vw;
+  max-width: 500px;
+  margin: 15px;
+  background-color: #2384d3;
+  color: white;
+  position: fixed;
+  bottom: 1rem;
+  animation-name: slidein;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slidein {
+  from {
+    bottom: -5rem;
+  }
+  to {
+    bottom: 1rem;
+  }
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+.alert-container h2 {
+  margin: 0;
+  padding-bottom: 0.2rem;
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+}
+
+.textcontainer p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.alert-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+#close-button {
+  font-size: 0.8rem;
+  padding-right: 0.5rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}

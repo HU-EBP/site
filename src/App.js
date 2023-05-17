@@ -1,7 +1,9 @@
 import React from "react";
-import GamePlayer from "./components/GamePlayer";
+// import GamePlayer from "./components/GamePlayer";
 import Navbar from "./components/Navbar";
 import "./components/CallToAction.css";
+import Playbutton from "./components/Playbutton";
+// import ShowAlert from "./components/ShowAlert";
 
 function App() {
   return (
@@ -13,12 +15,11 @@ function App() {
       <div id="cta-container">
         <div className="cta-flex">
           <h1>Spark</h1>
-          <button className="playbutton">Play</button>
+          <Playbutton />
         </div>
       </div>
-
       {/* Gameplayer */}
-      <GamePlayer />
+      {/* <GamePlayer /> */}
       <div></div>
     </div>
   );
