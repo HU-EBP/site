@@ -19,8 +19,8 @@ function Playbutton() {
   const playOrAlert = () => {
     if (isMobile) {
       setAlert({
-        title: "Spark",
-        message: "is not available for mobile.",
+        title: "Oops!",
+        message: "Spark is not available for mobile (yet!).",
       });
     } else {
       setAlert({
