@@ -1,45 +1,18 @@
-import React, { useRef } from "react";
-import {
-  FaBars,
-  FaGamepad,
-  FaHome,
-  FaQuestion,
-  FaSpeakap,
-  FaTimes,
-} from "react-icons/fa";
-import "./Navbar.css";
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 function Navbar() {
-  const navRef = useRef();
-
-  const showNavbar = () => {
-    navRef.current.classList.toggle("responsive_nav");
-  };
-
   return (
-    <header>
-      <h3>Spark</h3>
-      <nav ref={navRef}>
-        <a href="/#">
-          <FaHome /> Home
-        </a>
-        <a href="/#">
-          <FaGamepad /> Spark
-        </a>
-        <a href="/#">
-          <FaQuestion /> FAQ
-        </a>
-        <a href="/#">
-          <FaSpeakap /> Forum
-        </a>
-        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-          <FaTimes />
-        </button>
-      </nav>
-      <button className="nav-btn" onClick={showNavbar}>
-        <FaBars />
-      </button>
-    </header>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="../pages/Forum.js">Forum</Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
 

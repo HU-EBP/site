@@ -1,28 +1,18 @@
 import React from "react";
-// import GamePlayer from "./components/GamePlayer";
+import Home from "./pages/Home"; // Import Home component
+import Forum from "./pages/Forum";
 import Navbar from "./components/Navbar";
-import "./components/CallToAction.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Playbutton from "./components/Playbutton";
 import ShowAlert from "./components/ShowAlert";
-import About from "./components/about";
 
 function App() {
   return (
-    <div>
-      {/* Navbar */}
+    <Router>
       <Navbar />
-      {/* Call to action */}
-      <div id="cta-container">
-        <div className="cta-flex">
-          <h1>Spark</h1>
-          <Playbutton />
-        </div>
-      </div>
-      {/* Gameplayer */}
-      {/* <GamePlayer /> */}
-      <About />
-      <div></div>
-    </div>
+      <Route path="./pages/Home.js" exact component={Home} />
+      <Route path="./pages/Forum.js" component={Forum} />
+    </Router>
   );
 }
 
