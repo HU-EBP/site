@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Forum from "./pages/Forum";
-
 import NoPage from "./pages/NoPage";
 
 export default function App() {
@@ -14,11 +13,10 @@ export default function App() {
       <Routes>
                 
         <Route path="/" element={<Layout />}>
-                    
+               
           <Route index element={<Home />} />
-                    
-          <Route path="./pages/Forum.js" element={<Forum />} />
-                  
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/nopage" element={<NoPage />} />
         </Route>
               
       </Routes>
