@@ -41,7 +41,7 @@ const Login = () => {
 
   return (
     <main className="login">
-      <h1 className="loginTitle">Log into your account</h1>
+      <h1 className="loginTitle">Log in</h1>
       <form className="loginForm" onSubmit={handleSubmit}>
         <label htmlFor="email">Email Address</label>
         <input

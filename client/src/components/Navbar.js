@@ -13,20 +13,20 @@ function Navbar() {
   const navigate = useNavigate();
   const signOut = () => {
     localStorage.removeItem("_id");
-    //👇🏻 redirects to the login page
-    navigate("/");
   };
 
   const isUserLoggedIn = () => {
     if (localStorage.getItem("_id")) {
-      return true;
+      return null;
     }
-    return false;
+    return <Link to="/login">Sign in</Link>;
   };
 
   return (
     <header>
-      <h3>Spark</h3>
+      <h3>
+        <Link to="/"> Spark </Link>
+      </h3>
       <nav>
         <ul>
           <li>
@@ -37,7 +37,18 @@ function Navbar() {
           </li>
           <li>
             <button onClick={signOut}>
-              {isUserLoggedIn ? "Sign out" : "Sign in"}
+              {/* If user is logged in, return sign in. Else, return sign out */}
+              {isUserLoggedIn() ? (
+                <>
+                  {" "}
+                  <a href="/login">Sign in</a>
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <a href="/">Sign out</a>
+                </>
+              )}
             </button>
           </li>
         </ul>

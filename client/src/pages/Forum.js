@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../components/forum.css";
 import "../index.css";
+import "../components/forum.css";
 
 const Forum = () => {
   const [thread, setThread] = useState("");
