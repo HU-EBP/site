@@ -97,3 +97,27 @@ iframe#game {
   display: flex;
   flex-direction: column;
 }
+
+button {
+  background-color: var(--mainColorLight);
+  color: var(--textColor);
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondairyColor);
+  color: var(--textColor);
+}
+
+input {
+  background-color: var(--mainColorLight);
+  color: var(--textColor);
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
