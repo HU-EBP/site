@@ -9,6 +9,7 @@ const Replies = () => {
   const { id } = useParams();
 
   const addReply = () => {
+    console.log("userId:", localStorage.getItem("_id"));
     fetch("http://localhost:4000/api/create/reply", {
       method: "POST",
       body: JSON.stringify({
@@ -22,9 +23,14 @@ const Replies = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert(data.message);
+        if (data.message) {
+          alert(data.message);
+        } else if (data.error_message) {
+          alert(data.error_message);
+        }
         navigate("/dashboard");
       })
+
       .catch((err) => console.error(err));
   };
   const handleSubmitReply = (e) => {

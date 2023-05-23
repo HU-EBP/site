@@ -9,7 +9,6 @@ const Likes = ({ numberOfLikes, threadId }) => {
       threadId,
       userId: localStorage.getItem("_id"),
     };
-    console.log("Sending data:", data);
     fetch("http://localhost:4000/api/thread/like", {
       method: "POST",
       body: JSON.stringify({
