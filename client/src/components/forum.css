@@ -1,8 +1,9 @@
 .forum,
 .register,
 .login,
-.dashboard {
-  margin-top: 50px;
+.dashboard,
+.replies {
+  margin-top: 100px;
   text-align: center;
 }
 
@@ -63,6 +64,23 @@
   height: 100px;
 }
 
-.forum__container label {
-  text-wrap: nowrap;
+/* Forum home */
+.likes__container {
+  width: 10%;
+}
+
+/* Replies */
+
+.replies,
+.replies form {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.replies form textarea {
+  color: black;
 }

@@ -21,7 +21,7 @@ export default function App() {
           <Route path="/forum" element={<Forum />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/forum/:slug" element={<Replies />} />
+          <Route path="/:id/replies" element={<Replies />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
               
