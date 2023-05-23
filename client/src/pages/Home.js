@@ -2,7 +2,7 @@ import React from "react";
 import Playbutton from "../components/Playbutton";
 import "../index.css";
 import "../components/CallToAction.css";
-import About from "../components/About";
+import About from "../components/about";
 
 function Home() {
   return (
