@@ -22,7 +22,7 @@ function About() {
           </div>
         </div>
         {/* What you will learn  */}
-        <div className="learn-container">
+        {/* <div className="learn-container">
           <h3>What you will learn</h3>
 
           <div className="learnitems-container">
@@ -41,7 +41,7 @@ function About() {
               <p>and making your brain work</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
