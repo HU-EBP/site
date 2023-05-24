@@ -23,7 +23,7 @@ const Comments = ({ numberOfComments, threadId }) => {
         />
       </svg>
       <p style={{ color: "#434242" }}>
-        {numberOfComments === 0 ? "" : numberOfComments}
+        {numberOfComments === 0 ? "0" : numberOfComments}
       </p>
     </div>
   );

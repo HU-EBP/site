@@ -65,22 +65,26 @@ const Forum = () => {
     return (
       <>
         <main className="forum">
-          <h2 className="forumTitle">Create a Thread</h2>
-          <form className="forumForm" onSubmit={handleSubmit}>
-            <div className="forum__container">
-              <label htmlFor="thread">Title / Description</label>
-              <input
-                type="text"
-                name="thread"
-                required
-                value={thread}
-                onChange={(e) => setThread(e.target.value)}
-              />
-            </div>
-            <button className="forumBtn">CREATE THREAD</button>
-          </form>
+          <h1>Forum</h1>
+          <div className="create-thread">
+            <h2 className="forumTitle">Create a Thread</h2>
+            <form className="forumForm" onSubmit={handleSubmit}>
+              <div className="forum__container">
+                <input
+                  type="text"
+                  name="thread"
+                  required
+                  value={thread}
+                  onChange={(e) => setThread(e.target.value)}
+                  placeholder="Title / description"
+                />
+              </div>
+              <button className="forumBtn">CREATE THREAD</button>
+            </form>
+          </div>
 
           <div className="thread__container">
+            <h2 className="forumTitle">Threads</h2>
             {threadList.map((thread) => (
               <div className="thread__item" key={thread.id}>
                 <p>{thread.title}</p>
