@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Forum from "./pages/Forum";
 import Replies from "./pages/Replies";
 import Register from "./pages/Register";
-import Login from "./pages/Login";
+import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 
 export default function App() {
@@ -20,7 +20,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/forum" element={<Forum />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/:id/replies" element={<Replies />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
