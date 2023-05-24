@@ -39,7 +39,6 @@ app.post("/api/register", async (req, res) => {
 
   if (result.length === 0) {
     const newUser = { id, email, password, username };
-
     users.push(newUser);
     return res.json({
       message: "Account created successfully!",
@@ -104,9 +103,6 @@ app.post("/api/create/reply", async (req, res) => {
   const { id, userId, reply } = req.body;
   const result = threadList.filter((thread) => thread.id === id);
   const username = users.filter((user) => user.id === userId);
-
-  // Log username
-  console.log(username[0].username);
 
   result[0].replies.unshift({ name: username[0].username, text: reply });
 

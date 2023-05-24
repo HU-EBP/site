@@ -17,10 +17,17 @@ function Navbar() {
 
   const isUserLoggedIn = () => {
     if (localStorage.getItem("_id")) {
-      return null;
+      return true;
     }
-    return <Link to="/login">Sign in</Link>;
+    return false;
   };
+
+  // const isUserLoggedIn = () => {
+  //   if (localStorage.getItem("_id")) {
+  //     return null;
+  //   }
+  //   return <Link to="/login">Sign in</Link>;
+  // };
 
   return (
     <header>
@@ -36,20 +43,21 @@ function Navbar() {
             <Link to="/forum">Forum</Link>
           </li>
           <li>
-            <button onClick={signOut}>
-              {/* If user is logged in, return sign in. Else, return sign out */}
-              {isUserLoggedIn() ? (
-                <>
-                  {" "}
-                  <a href="/login">Sign in</a>
-                </>
-              ) : (
-                <>
-                  {" "}
+            {isUserLoggedIn() ? (
+              <>
+                {" "}
+                <button onClick={signOut}>
                   <a href="/">Sign out</a>
-                </>
-              )}
-            </button>
+                </button>
+              </>
+            ) : (
+              <>
+                {" "}
+                <button>
+                  <a href="/login">Sign in</a>
+                </button>
+              </>
+            )}
           </li>
         </ul>
       </nav>

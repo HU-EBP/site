@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const LoginFrame = (props) => {
+  //👇🏻 React Router's useNavigate hook
+  const navigate = useNavigate();
+
+  const isUserLoggedIn = () => {
+    if (localStorage.getItem("_id")) {
+      return true;
+    }
+    return false;
+  };
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -9,9 +19,6 @@ const Login = () => {
     e.preventDefault();
     loginUser();
   };
-
-  //👇🏻 React Router's useNavigate hook
-  const navigate = useNavigate();
 
   const loginUser = () => {
     fetch("http://localhost:4000/api/login", {
@@ -30,15 +37,15 @@ const Login = () => {
           alert(data.error_message);
         } else {
           alert(data.message);
-          navigate("/dashboard");
+          navigate("/forum");
           localStorage.setItem("_id", data.id);
           setEmail("");
           setPassword("");
+          window.location.reload(false);
         }
       })
       .catch((err) => console.error(err));
   };
-
   return (
     <main className="login">
       <h1 className="loginTitle">Log in</h1>
@@ -69,4 +76,5 @@ const Login = () => {
     </main>
   );
 };
-export default Login;
+
+export default LoginFrame;
