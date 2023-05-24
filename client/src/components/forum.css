@@ -1,0 +1,87 @@
+.forum,
+.register,
+.login,
+.dashboard,
+.replies {
+  margin-top: 100px;
+  text-align: center;
+  height: 100vh;
+}
+
+/* Login */
+.login,
+.forum {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  height: 100vh;
+}
+
+.login h1 {
+  font-size: 2rem;
+}
+
+.login p {
+  font-size: 1rem;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+/* Register */
+
+.register {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  height: 100vh;
+}
+
+.registerForm,
+.forumForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.forumForm input {
+  width: 100%;
+}
+
+.forum__container {
+  width: 100%;
+  height: 100px;
+}
+
+/* Forum home */
+.likes__container {
+  width: 10%;
+}
+
+/* Replies */
+
+.replies,
+.replies form {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.replies form textarea {
+  color: black;
+}
