@@ -104,9 +104,6 @@ app.post("/api/create/reply", async (req, res) => {
   const result = threadList.filter((thread) => thread.id === id);
   const username = users.filter((user) => user.id === userId);
 
-  // Log username
-  console.log(username[0].username);
-
   result[0].replies.unshift({ name: username[0].username, text: reply });
 
   res.json({

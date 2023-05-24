@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import ShowAlert from "../components/ShowAlert";
 
 const Replies = () => {
   const [replyList, setReplyList] = useState([]);
@@ -7,37 +8,7 @@ const Replies = () => {
   const [title, setTitle] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
-
-  const addReply = () => {
-    console.log("userId:", localStorage.getItem("_id"));
-    fetch("http://localhost:4000/api/create/reply", {
-      method: "POST",
-      body: JSON.stringify({
-        id,
-        userId: localStorage.getItem("_id"),
-        reply,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.message) {
-          alert(data.message);
-        } else if (data.error_message) {
-          alert(data.error_message);
-        }
-        navigate("/dashboard");
-      })
-
-      .catch((err) => console.error(err));
-  };
-  const handleSubmitReply = (e) => {
-    e.preventDefault();
-    addReply();
-    setReply("");
-  };
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     const fetchReplies = () => {
@@ -60,6 +31,36 @@ const Replies = () => {
     fetchReplies();
   }, [id]);
 
+  const addReply = () => {
+    console.log("userId:", localStorage.getItem("_id"));
+    fetch("http://localhost:4000/api/create/reply", {
+      method: "POST",
+      body: JSON.stringify({
+        id,
+        userId: localStorage.getItem("_id"),
+        reply,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message) {
+          alert(data.message);
+        } else if (data.error_message) {
+          alert(data.error_message);
+        }
+      })
+
+      .catch((err) => console.error(err));
+  };
+  const handleSubmitReply = (e) => {
+    e.preventDefault();
+    addReply();
+    setReply("");
+    window.location.reload(); // refresh the page
+  };
   return (
     <main className="replies">
       <h1 className="repliesTitle">{title}</h1>

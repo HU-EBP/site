@@ -40,15 +40,7 @@ function Navbar() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            {isUserLoggedIn() ? (
-              <>
-                <Link to="/forum">Forum</Link>
-              </>
-            ) : (
-              <>
-                <Link to="/login">Forum</Link>
-              </>
-            )}
+            <Link to="/forum">Forum</Link>
           </li>
           <li>
             {isUserLoggedIn() ? (
