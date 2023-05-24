@@ -4,6 +4,7 @@ import Comments from "../utils/Comments";
 import { useNavigate, Link } from "react-router-dom";
 import "../components/forum.css";
 import LoginFrame from "./LoginFrame";
+import ShowAlert from "../components/ShowAlert";
 
 const Forum = () => {
   const navigate = useNavigate();
@@ -62,6 +63,7 @@ const Forum = () => {
       createThread();
       setThread("");
     };
+
     return (
       <>
         <main className="forum">

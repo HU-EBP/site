@@ -78,17 +78,25 @@ const Replies = () => {
 
         <button className="modalBtn">SEND</button>
       </form>
-
-      <div className="thread__container">
-        {replyList.map((reply) => (
-          <div className="thread__item">
-            <p>{reply.text}</p>
-            <div className="react__container">
-              <p style={{ opacity: "0.5" }}>by {reply.name}</p>
+      {/* If there are no replies, return "no replies" */}
+      {replyList.length === 0 && (
+        <div className="thread__item">
+          <p>No replies yet</p>
+        </div>
+      )}
+      {/* If there are replies, return the replies */}
+      {replyList.length > 0 && (
+        <div className="thread__container">
+          {replyList.map((reply) => (
+            <div className="thread__item">
+              <p>{reply.text}</p>
+              <div className="react__container">
+                <p style={{ opacity: "0.5" }}>by {reply.name}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </main>
   );
 };
