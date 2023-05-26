@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Press Start 2P", cursive;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  gap: 1rem;
+  top: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav a {
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--secondairyColor);
+}
+
+header .nav-btn {
+  display: none;
+}
+
+nav .nav-close-btn {
+  display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  nav ul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--mainColor);
+    transform: translateY(-100vh);
+  }
+
+  nav.responsive_nav ul {
+    animation: showNav 0.5s forwards;
+  }
+
+  @keyframes showNav {
+    0% {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  nav .nav-close-btn {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  header .nav-btn {
+    display: block;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+  }
+}
