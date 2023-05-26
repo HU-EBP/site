@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./pages/Home"; // Import Home component
+import Home from "./pages/Home";
 import Forum from "./pages/Forum";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -9,17 +9,22 @@ import Replies from "./pages/Replies";
 import Dashboard from "./pages/Dashboard";
 
 function App() {
+  // Render the components within a Router to handle routing
   return (
     <Router>
+      {/* Navbar component, shown on all pages */}
       <Navbar />
-      <Route path="./pages/Home.js" exact component={Home} />
-      <Route path="./pages/Forum.js" component={Forum} />
-      <Route path="./pages/LoginPage.js" component={Login} />
-      <Route path="./pages/Register.js" component={Register} />
-      <Route path="./pages/Replies.js" component={Replies} />
-      <Route path="./pages/Dashboard.js" component={Dashboard} />
+      {/* Route components define paths for each page */}
+      {/* 'exact' means that the route will only be chosen if the path is an exact match */}
+      <Route path="/" exact component={Home} />
+      <Route path="/forum" component={Forum} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/register" component={Register} />
+      <Route path="/replies" component={Replies} />
+      <Route path="/dashboard" component={Dashboard} />
     </Router>
   );
 }
 
+// Export App component so it can be imported and used in other files
 export default App;
