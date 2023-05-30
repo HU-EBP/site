@@ -61,12 +61,13 @@ app.post("/api/register", async (req, res) => {
 
 // Define POST endpoint for creating a new thread
 app.post("/api/create/thread", async (req, res) => {
-  const { thread, userId } = req.body;
+  const { thread, userId, tags } = req.body;
   let threadId = generateID();
   threadList.unshift({
     id: threadId,
     title: thread,
     userId,
+    tags,
     replies: [],
     likes: [],
   });
@@ -76,6 +77,7 @@ app.post("/api/create/thread", async (req, res) => {
     threads: threadList,
   });
 });
+
 
 // Define GET endpoint for retrieving all threads
 app.get("/api/all/threads", (req, res) => {

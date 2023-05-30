@@ -32,6 +32,8 @@ const Forum = () => {
     // If the user is logged in
     const [thread, setThread] = useState(""); // State for the thread being created
     const [threadList, setThreadList] = useState([]); // State for the list of threads
+    const [tags, setTags] = useState("");
+
 
     // Run when the component is first rendered
     useEffect(() => {
@@ -52,13 +54,13 @@ const Forum = () => {
       checkUser();
     }, [navigate]); // Re-run when the navigate function changes
 
-    // Function to create a new thread
     const createThread = () => {
       fetch("http://localhost:4000/api/create/thread", {
         method: "POST",
         body: JSON.stringify({
           thread,
           id: localStorage.getItem("_id"),
+          tags: [tags], // Geef een array van tags door in plaats van een enkele tag
         }),
         headers: {
           "Content-Type": "application/json",
@@ -96,6 +98,23 @@ const Forum = () => {
                   onChange={(e) => setThread(e.target.value)}
                   placeholder="Title / description"
                 />
+                {/* <input
+                  type="text"
+                  name="tags"
+                  value={tags}
+                  onChange={(e) => setTags(e.target.value)}
+                  placeholder="Tags (comma separated)"
+                /> */}
+                 <select
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+          // Voeg hier eventueel een meervoudige selectie toe met 'multiple' attribuut
+        >
+          <option value="">Select a tag</option>
+          <option value="Game">Game</option>
+          <option value="Puzzle">Puzzle</option>
+          {/* Voeg hier extra opties toe voor andere tags */}
+        </select>
               </div>
               <button className="forumBtn">CREATE THREAD</button>
             </form>
@@ -106,6 +125,7 @@ const Forum = () => {
             {threadList.map((thread) => (
               <div className="thread__item" key={thread.id}>
                 <p>{thread.title}</p>
+                <p>{thread.tags}</p>
                 <div className="react__container">
                   <Likes
                     numberOfLikes={thread.likes.length}

@@ -68,6 +68,13 @@
   font-size: 2rem;
 }
 
+.forum__container select{
+color: #000;
+
+
+
+}
+
 .forum {
   margin: 2vw;
   display: flex;
