@@ -39,9 +39,6 @@ const Replies = () => {
 
   // Function to add reply to thread
   const addReply = () => {
-    // Log user id from localStorage
-    console.log("userId:", localStorage.getItem("_id"));
-
     // Send POST request to server to add reply
     fetch("http://localhost:4000/api/create/reply", {
       method: "POST",
@@ -68,10 +65,16 @@ const Replies = () => {
 
   // Function to handle reply form submission
   const handleSubmitReply = (e) => {
-    e.preventDefault(); // Prevent form default behaviour
-    addReply(); // Add reply
-    setReply(""); // Clear reply input
-    window.location.reload(); // Refresh the page
+    // If user is not logged in, alert user and dont reload page.
+    if (localStorage.getItem("_id") === null) {
+      alert("You must be logged in to reply to a thread."); // Alert user
+      e.preventDefault(); // Prevent form default behaviour
+    } else {
+      e.preventDefault(); // Prevent form default behaviour
+      addReply(); // Add reply
+      setReply(""); // Clear reply input
+      window.location.reload(); // Refresh the page
+    }
   };
 
   // Render Replies component
@@ -89,6 +92,7 @@ const Replies = () => {
           type="text"
           name="reply"
           className="modalInput"
+          required
         />
 
         <button className="modalBtn">SEND</button>
