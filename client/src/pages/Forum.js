@@ -34,7 +34,6 @@ const Forum = () => {
     const [threadList, setThreadList] = useState([]); // State for the list of threads
     const [tags, setTags] = useState("");
 
-
     // Run when the component is first rendered
     useEffect(() => {
       // Function to check if the user is still logged in
@@ -105,16 +104,16 @@ const Forum = () => {
                   onChange={(e) => setTags(e.target.value)}
                   placeholder="Tags (comma separated)"
                 /> */}
-                 <select
-          value={tags}
-          onChange={(e) => setTags(e.target.value)}
-          // Voeg hier eventueel een meervoudige selectie toe met 'multiple' attribuut
-        >
-          <option value="">Select a tag</option>
-          <option value="Game">Game</option>
-          <option value="Puzzle">Puzzle</option>
-          {/* Voeg hier extra opties toe voor andere tags */}
-        </select>
+                <select
+                  value={tags}
+                  onChange={(e) => setTags(e.target.value)}
+                  // Voeg hier eventueel een meervoudige selectie toe met 'multiple' attribuut
+                >
+                  <option value="">Select a tag</option>
+                  <option value="Game">Game</option>
+                  <option value="Puzzle">Puzzle</option>
+                  {/* Voeg hier extra opties toe voor andere tags */}
+                </select>
               </div>
               <button className="forumBtn">CREATE THREAD</button>
             </form>
