@@ -105,7 +105,7 @@ const Forum = () => {
                   onChange={(e) => setTags(e.target.value)}
                   placeholder="Tags (comma separated)"
                 /> */}
-                 <select
+                 <select 
           value={tags}
           onChange={(e) => setTags(e.target.value)}
           // Voeg hier eventueel een meervoudige selectie toe met 'multiple' attribuut
