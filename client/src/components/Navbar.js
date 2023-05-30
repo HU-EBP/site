@@ -7,12 +7,15 @@ import {
 } from "react-router-dom";
 import "../components/Navbar.css";
 import "../index.css";
-import Forum from "../pages/Forum";
 
 function Navbar() {
   const navigate = useNavigate();
+
   const signOut = () => {
     localStorage.removeItem("_id");
+    alert("You have been signed out");
+    // Navigate to the home page
+    navigate("/");
   };
 
   const isUserLoggedIn = () => {
@@ -46,16 +49,14 @@ function Navbar() {
             {isUserLoggedIn() ? (
               <>
                 {" "}
-                <button onClick={signOut}>
-                  <a href="/">Sign out</a>
-                </button>
+                <button onClick={signOut}>Sign out</button>
               </>
             ) : (
               <>
                 {" "}
-                <button>
-                  <a href="/login">Sign in</a>
-                </button>
+                <a href="/login">
+                  <button>Sign in</button>
+                </a>
               </>
             )}
           </li>
