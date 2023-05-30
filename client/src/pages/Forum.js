@@ -168,6 +168,8 @@ const Forum = () => {
               .map((thread) => (
                 <div className="thread__item" key={thread.id}>
                   <p>{thread.title}</p>
+                  <p>By: {thread.username}</p>
+
                   <p>{thread.description}</p>
                   <p>{thread.tags}</p>
                   <div className="react__container">
