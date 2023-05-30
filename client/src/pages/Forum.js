@@ -33,6 +33,7 @@ const Forum = () => {
     const [thread, setThread] = useState(""); // State for the thread being created
     const [threadList, setThreadList] = useState([]); // State for the list of threads
     const [tags, setTags] = useState("");
+    const [selectedTags, setSelectedTags] = useState([]);
 
     // Run when the component is first rendered
     useEffect(() => {
@@ -80,6 +81,13 @@ const Forum = () => {
       setThread(""); // Reset the thread state
     };
 
+    const handleTagSelection = (e) => {
+      const { value, checked } = e.target;
+      setSelectedTags((prevTags) =>
+        checked ? [...prevTags, value] : prevTags.filter((tag) => tag !== value)
+      );
+    };
+
     // Return the Forum UI
     return (
       <>
@@ -121,23 +129,50 @@ const Forum = () => {
 
           <div className="thread__container">
             <h2 className="forumTitle">Threads</h2>
-            {threadList.map((thread) => (
-              <div className="thread__item" key={thread.id}>
-                <p>{thread.title}</p>
-                <p>{thread.tags}</p>
-                <div className="react__container">
-                  <Likes
-                    numberOfLikes={thread.likes.length}
-                    threadId={thread.id}
-                  />
-                  <Comments
-                    numberOfComments={thread.replies.length}
-                    threadId={thread.id}
-                    title={thread.title}
-                  />
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Game"
+                  checked={selectedTags.includes("Game")}
+                  onChange={(e) => handleTagSelection(e)}
+                />
+                Game
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Puzzle"
+                  checked={selectedTags.includes("Puzzle")}
+                  onChange={(e) => handleTagSelection(e)}
+                />
+                Puzzle
+              </label>
+              {/* Voeg hier extra checkboxes toe voor andere tags */}
+            </div>
+            {threadList
+              .filter((thread) =>
+                selectedTags.length === 0
+                  ? true
+                  : thread.tags.some((tag) => selectedTags.includes(tag))
+              )
+              .map((thread) => (
+                <div className="thread__item" key={thread.id}>
+                  <p>{thread.title}</p>
+                  <p>{thread.tags}</p>
+                  <div className="react__container">
+                    <Likes
+                      numberOfLikes={thread.likes.length}
+                      threadId={thread.id}
+                    />
+                    <Comments
+                      numberOfComments={thread.replies.length}
+                      threadId={thread.id}
+                      title={thread.title}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </main>
       </>
