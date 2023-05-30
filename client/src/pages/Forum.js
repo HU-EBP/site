@@ -155,7 +155,7 @@ const Forum = () => {
       />
       <span>Puzzle solutions</span>
     </label>
-    {/* Add more tags as needed */}
+  
   </div>
   {threadList
     .filter((thread) =>
@@ -198,17 +198,7 @@ const Forum = () => {
             ))}
         </div>
       </main>
-      <div className="sidebar">
-  <div className="sidebar-content">
-    <h2>Tags</h2>
-    <ul>
-      <li>Tag 1</li>
-      <li>Tag 2</li>
-      <li>Tag 3</li>
-      {/* Voeg hier eventueel andere inhoud toe */}
-    </ul>
-  </div>
-</div>
+     
     </>
   );
 };

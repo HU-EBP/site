@@ -5,11 +5,137 @@
   align-items: center;
   margin-top: 50px;
   gap: 30px;
+  padding: 90px;
 }
 
 .forum h1 {
   font-size: 2rem;
 }
+
+
+/*---------------------------------------*/
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.loginTitle {
+  font-size: 24px;
+  margin-top: 100px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 90px;
+}
+
+.loginForm label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.loginForm input[type="text"],
+.loginForm input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.loginBtn {
+  padding: 8px 16px;
+  background-color: #ff4500;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  background-color: #ff6347;
+}
+
+.login p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.login p a {
+  color: #ff4500;
+  text-decoration: none;
+}
+
+.login p a:hover {
+  text-decoration: underline;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 90px;
+}
+
+.registerTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.registerForm label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.registerForm input {
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.registerBtn {
+  background-color: #ff4500;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.registerBtn:hover {
+  background-color: #e63c00;
+}
+
+.register p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register p a {
+  color: #ff4500;
+  text-decoration: none;
+}
+
+.register p a:hover {
+  text-decoration: underline;
+}
+
+/*---------------------------------------*/
+
 
 .create-thread {
   border: 1px solid #ccc;
@@ -18,6 +144,8 @@
   width: 100%;
   max-width: 700px;
 }
+
+
 
 .forumTitle {
   font-size: 1.2rem;
