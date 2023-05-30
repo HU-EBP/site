@@ -30,10 +30,13 @@ const Forum = () => {
     );
   } else {
     // If the user is logged in
-    const [thread, setThread] = useState(""); // State for the thread being created
+    const [title, setTitle] = useState(""); // State for the title being created
+    const [description, setDescription] = useState(""); // State for the description being created
+    const [thread, setThread] = useState("");
+
     const [threadList, setThreadList] = useState([]); // State for the list of threads
     const [tags, setTags] = useState("");
-
+    const [selectedTags, setSelectedTags] = useState([]);
 
     // Run when the component is first rendered
     useEffect(() => {
@@ -58,9 +61,10 @@ const Forum = () => {
       fetch("http://localhost:4000/api/create/thread", {
         method: "POST",
         body: JSON.stringify({
-          thread,
+          title,
+          description,
           id: localStorage.getItem("_id"),
-          tags: [tags], // Geef een array van tags door in plaats van een enkele tag
+          tags: [tags],
         }),
         headers: {
           "Content-Type": "application/json",
@@ -70,6 +74,10 @@ const Forum = () => {
         .then((data) => {
           alert(data.message);
           setThreadList(data.threads);
+
+          // Reset de titel en beschrijving velden
+          setTitle("");
+          setDescription("");
         })
         .catch((err) => console.error(err));
     };
@@ -81,28 +89,42 @@ const Forum = () => {
       setThread(""); // Reset the thread state
     };
 
+    const handleTagSelection = (e) => {
+      const { value, checked } = e.target;
+      setSelectedTags((prevTags) =>
+        checked ? [...prevTags, value] : prevTags.filter((tag) => tag !== value)
+      );
+    };
+
     // Return the Forum UI
     return (
       <>
         <main className="forum">
           <h1>Forum</h1>
           <div className="create-thread">
-            <h2 className="forumTitle">Create a Thread</h2>
+            <h2 className="forumTitle">Create a post</h2>
             <form className="forumForm" onSubmit={handleSubmit}>
               <div className="forum__container">
                 <input
                   type="text"
-                  name="thread"
+                  name="title"
                   required
-                  value={thread}
-                  onChange={(e) => setThread(e.target.value)}
-                  placeholder="Title / description"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Title"
                 />
-                {/* <input
+                <input
                   type="text"
-                  name="tags"
+                  name="description"
+                  required
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Description"
+                />
+                <select
                   value={tags}
                   onChange={(e) => setTags(e.target.value)}
+<<<<<<< HEAD
                   placeholder="Tags (comma separated)"
                 /> */}
                  <select 
@@ -115,30 +137,67 @@ const Forum = () => {
           <option value="Puzzle">Puzzle</option>
           {/* Voeg hier extra opties toe voor andere tags */}
         </select>
+=======
+                  // Voeg hier eventueel een meervoudige selectie toe met 'multiple' attribuut
+                >
+                  <option value="">Select a tag</option>
+                  <option value="Game">Game</option>
+                  <option value="Puzzle">Puzzle</option>
+                  {/* Voeg hier extra opties toe voor andere tags */}
+                </select>
+>>>>>>> 5af2892c10d04fffeffc0df02a903f3b3e09b066
               </div>
-              <button className="forumBtn">CREATE THREAD</button>
+              <button className="forumBtn">CREATE POST</button>
             </form>
           </div>
 
           <div className="thread__container">
-            <h2 className="forumTitle">Threads</h2>
-            {threadList.map((thread) => (
-              <div className="thread__item" key={thread.id}>
-                <p>{thread.title}</p>
-                <p>{thread.tags}</p>
-                <div className="react__container">
-                  <Likes
-                    numberOfLikes={thread.likes.length}
-                    threadId={thread.id}
-                  />
-                  <Comments
-                    numberOfComments={thread.replies.length}
-                    threadId={thread.id}
-                    title={thread.title}
-                  />
+            <h2 className="forumTitle">Posts</h2>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Game"
+                  checked={selectedTags.includes("Game")}
+                  onChange={(e) => handleTagSelection(e)}
+                />
+                Game
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Puzzle"
+                  checked={selectedTags.includes("Puzzle")}
+                  onChange={(e) => handleTagSelection(e)}
+                />
+                Puzzle
+              </label>
+              {/* Voeg hier extra checkboxes toe voor andere tags */}
+            </div>
+            {threadList
+              .filter((thread) =>
+                selectedTags.length === 0
+                  ? true
+                  : thread.tags.some((tag) => selectedTags.includes(tag))
+              )
+              .map((thread) => (
+                <div className="thread__item" key={thread.id}>
+                  <p>{thread.title}</p>
+                  <p>{thread.description}</p>
+                  <p>{thread.tags}</p>
+                  <div className="react__container">
+                    <Likes
+                      numberOfLikes={thread.likes.length}
+                      threadId={thread.id}
+                    />
+                    <Comments
+                      numberOfComments={thread.replies.length}
+                      threadId={thread.id}
+                      title={thread.title}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </main>
       </>
