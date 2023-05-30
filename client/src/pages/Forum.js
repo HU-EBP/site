@@ -109,44 +109,67 @@ const Forum = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Description"
               />
-              <select
-                value={tags}
-                onChange={(e) => setTags(e.target.value)}
-                // Voeg hier eventueel een meervoudige selectie toe met 'multiple' attribuut
-              >
-                <option value="">Select a tag</option>
-                <option value="Game">Game</option>
-                <option value="Puzzle">Puzzle</option>
-                {/* Voeg hier extra opties toe voor andere tags */}
-              </select>
+              
             </div>
             <button className="forumBtn">CREATE POST</button>
           </form>
         </div>
 
-        <div className="thread__container">
-          <h2 className="forumTitle">Posts</h2>
-          <div>
-            <label>
-              <input
-                type="checkbox"
-                value="Game"
-                checked={selectedTags.includes("Game")}
-                onChange={(e) => handleTagSelection(e)}
-              />
-              Game
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                value="Puzzle"
-                checked={selectedTags.includes("Puzzle")}
-                onChange={(e) => handleTagSelection(e)}
-              />
-              Puzzle
-            </label>
-            {/* Voeg hier extra checkboxes toe voor andere tags */}
-          </div>
+        
+          <div className="thread__container">
+  <h2 className="forumTitle">Posts</h2>
+  <div className="tag-filters">
+    <label>
+      <input
+        type="checkbox"
+        value="Game"
+        checked={selectedTags.includes("Game")}
+        onChange={(e) => handleTagSelection(e)}
+      />
+      <span>Game</span>
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        value="Puzzle"
+        checked={selectedTags.includes("Puzzle")}
+        onChange={(e) => handleTagSelection(e)}
+      />
+      <span>Puzzle</span>
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        value="Technology"
+        checked={selectedTags.includes("Technology")}
+        onChange={(e) => handleTagSelection(e)}
+      />
+      <span>Tips/Tops</span>
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        value="Art"
+        checked={selectedTags.includes("Art")}
+        onChange={(e) => handleTagSelection(e)}
+      />
+      <span>Puzzle solutions</span>
+    </label>
+    {/* Add more tags as needed */}
+  </div>
+  {threadList
+    .filter((thread) =>
+      selectedTags.length === 0
+        ? true
+        : thread.tags.some((tag) => selectedTags.includes(tag))
+    )
+    .map((thread) => (
+      <div className="thread__item" key={thread.id}>
+        {/* Rest of the thread item content */}
+      </div>
+    ))}
+
+
           {threadList
             .filter((thread) =>
               selectedTags.length === 0
@@ -175,6 +198,17 @@ const Forum = () => {
             ))}
         </div>
       </main>
+      <div className="sidebar">
+  <div className="sidebar-content">
+    <h2>Tags</h2>
+    <ul>
+      <li>Tag 1</li>
+      <li>Tag 2</li>
+      <li>Tag 3</li>
+      {/* Voeg hier eventueel andere inhoud toe */}
+    </ul>
+  </div>
+</div>
     </>
   );
 };
