@@ -6,12 +6,12 @@
   margin-top: 50px;
   gap: 30px;
   padding: 90px;
+  margin-bottom: 100px;
 }
 
 .forum h1 {
   font-size: 2rem;
 }
-
 
 /*---------------------------------------*/
 .login {
@@ -181,9 +181,6 @@
 }
 
 .thread__container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
   width: 100%;
   max-width: 700px;
   border: 1px solid #ccc;
@@ -194,8 +191,14 @@
 .thread__item {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
+  max-width: 600px;
+  width: 100%;}
 
 .thread__item p {
   margin: 0;
@@ -227,9 +230,27 @@
   fill: #ff4500;
 }
 
-.thread__item:last-child {
-  border-bottom: none;
+
+
+
+
+.react__container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+
+.react__container svg {
+  width: 16px;
+  fill: #999;
+  cursor: pointer;
+}
+
+.react__container svg:hover {
+  fill: #ff4500;
+}
+
+
 
 /* Tag Filters */
 
@@ -296,4 +317,140 @@
   margin: 0;
   font-size: 0.9rem;
   font-weight: bold;
+}
+
+/*---------------------------------*/
+
+.replies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 90px;
+  margin-bottom: 20px; /* Added margin-bottom */
+}
+
+
+.repliesTitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 700px;
+  padding: 50px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.modal__content label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.modalInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  color: black;
+}
+
+.modalBtn {
+  background-color: #ff4500;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modalBtn:hover {
+  background-color: #ff6347;
+}
+
+.thread__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.thread__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.thread__item p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.react__container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.react__container p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #999999;
+}
+
+.react__container svg {
+  width: 16px;
+  cursor: pointer;
+}
+
+.react__container svg:hover {
+  fill: #ff4500;
+}
+
+.container {
+  display: flex;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 200px; /* Pas de breedte aan naar wens */
+  padding: 10px;
+}
+
+.navbarTitle {
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.tag-filters {
+  display: flex;
+  flex-direction: column;
+}
+
+.tag-filters label {
+  margin-bottom: 5px;
+}
+
+.navbar {
+  position: fixed;
+  right: 0;
+  top: 20px;
+  z-index: 1;
+  margin-top: 100px;
+  margin-right: 90px;
+
 }

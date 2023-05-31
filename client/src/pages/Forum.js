@@ -109,66 +109,33 @@ const Forum = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Description"
               />
-              
+              <select
+                  value={tags}
+                  onChange={(e) => setTags(e.target.value)}
+                  // Voeg hier eventueel een meervoudige selectie toe met 'multiple' attribuut
+                >
+                  <option value="">Select a tag</option>
+                  <option value="Game">Game</option>
+                  <option value="Puzzle">Puzzle</option>
+                  {/* Voeg hier extra opties toe voor andere tags */}
+                </select>
             </div>
             <button className="forumBtn">CREATE POST</button>
           </form>
         </div>
 
         
-          <div className="thread__container">
-  <h2 className="forumTitle">Posts</h2>
-  <div className="tag-filters">
-    <label>
-      <input
-        type="checkbox"
-        value="Game"
-        checked={selectedTags.includes("Game")}
-        onChange={(e) => handleTagSelection(e)}
-      />
-      <span>Game</span>
-    </label>
-    <label>
-      <input
-        type="checkbox"
-        value="Puzzle"
-        checked={selectedTags.includes("Puzzle")}
-        onChange={(e) => handleTagSelection(e)}
-      />
-      <span>Puzzle</span>
-    </label>
-    <label>
-      <input
-        type="checkbox"
-        value="Technology"
-        checked={selectedTags.includes("Technology")}
-        onChange={(e) => handleTagSelection(e)}
-      />
-      <span>Tips/Tops</span>
-    </label>
-    <label>
-      <input
-        type="checkbox"
-        value="Art"
-        checked={selectedTags.includes("Art")}
-        onChange={(e) => handleTagSelection(e)}
-      />
-      <span>Puzzle solutions</span>
-    </label>
-  
-  </div>
-  {threadList
-    .filter((thread) =>
-      selectedTags.length === 0
-        ? true
-        : thread.tags.some((tag) => selectedTags.includes(tag))
-    )
-    .map((thread) => (
-      <div className="thread__item" key={thread.id}>
-        {/* Rest of the thread item content */}
-      </div>
-    ))}
-
+        {threadList
+            .filter((thread) =>
+              selectedTags.length === 0
+                ? true
+                : thread.tags.some((tag) => selectedTags.includes(tag))
+            )
+            .map((thread) => (
+              <div className="" key={thread.id}>
+                {/* Rest of the thread item content */}
+              </div>
+            ))}
 
           {threadList
             .filter((thread) =>
@@ -196,9 +163,40 @@ const Forum = () => {
                 </div>
               </div>
             ))}
+            <div className="thread__container">
+          <h2 className="forumTitle">tags</h2>
+          <div class="container">
+  <div class="navbar">
+    <h2 class="navbarTitle">Tags</h2>
+    <div class="tag-filters">
+    <label>
+                <input
+                  type="checkbox"
+                  value="Game"
+                  checked={selectedTags.includes("Game")}
+                  onChange={(e) => handleTagSelection(e)}
+                />
+                Game
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Puzzle"
+                  checked={selectedTags.includes("Puzzle")}
+                  onChange={(e) => handleTagSelection(e)}
+                />
+                Puzzle
+              </label>
+      
+    </div>
+  </div>
+
+  
+</div>
+
+          
         </div>
       </main>
-     
     </>
   );
 };
