@@ -109,6 +109,16 @@ const Forum = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Description"
               />
+              <select
+                  value={tags}
+                  onChange={(e) => setTags(e.target.value)}
+                  // Voeg hier eventueel een meervoudige selectie toe met 'multiple' attribuut
+                >
+                  <option value="">Select a tag</option>
+                  <option value="Game">Game</option>
+                  <option value="Puzzle">Puzzle</option>
+                  {/* Voeg hier extra opties toe voor andere tags */}
+                </select>
             </div>
             <button className="forumBtn">CREATE POST</button>
           </form>
@@ -159,22 +169,25 @@ const Forum = () => {
   <div class="navbar">
     <h2 class="navbarTitle">Tags</h2>
     <div class="tag-filters">
-      <label>
-        <input type="checkbox" value="Game" />
-        <span>Game</span>
-      </label>
-      <label>
-        <input type="checkbox" value="Puzzle" />
-        <span>Puzzle</span>
-      </label>
-      <label>
-        <input type="checkbox" value="Technology" />
-        <span>Tips/Tops</span>
-      </label>
-      <label>
-        <input type="checkbox" value="Art" />
-        <span>Puzzle solutions</span>
-      </label>
+    <label>
+                <input
+                  type="checkbox"
+                  value="Game"
+                  checked={selectedTags.includes("Game")}
+                  onChange={(e) => handleTagSelection(e)}
+                />
+                Game
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Puzzle"
+                  checked={selectedTags.includes("Puzzle")}
+                  onChange={(e) => handleTagSelection(e)}
+                />
+                Puzzle
+              </label>
+      
     </div>
   </div>
 
