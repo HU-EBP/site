@@ -25,7 +25,7 @@ function Playbutton() {
     } else {
       setAlert({
         title: "Spark",
-        message: "Game is about to start.",
+        message: "Game is about to start. Please allow popups.",
       });
       //   Set timeout to allow the user to read the alert
       setTimeout(() => {

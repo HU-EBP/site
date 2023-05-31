@@ -1,146 +1,299 @@
-.register,
-.login,
-.dashboard,
-.replies,
-.forum {
-  margin-top: 100px;
-  text-align: center;
-  height: 100vh;
-}
-
-/* Login */
-.login,
+/* Forum */
 .forum {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 60px;
-  height: 100vh;
+  margin-top: 50px;
+  gap: 30px;
+  padding: 90px;
 }
 
-.login h1 {
+.forum h1 {
   font-size: 2rem;
 }
 
-.login p {
-  font-size: 1rem;
+
+/*---------------------------------------*/
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.loginTitle {
+  font-size: 24px;
+  margin-top: 100px;
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 300px;
-  margin: 0 auto;
-  gap: 10px;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 90px;
 }
 
-/* Register */
+.loginForm label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.loginForm input[type="text"],
+.loginForm input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.loginBtn {
+  padding: 8px 16px;
+  background-color: #ff4500;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  background-color: #ff6347;
+}
+
+.login p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.login p a {
+  color: #ff4500;
+  text-decoration: none;
+}
+
+.login p a:hover {
+  text-decoration: underline;
+}
 
 .register {
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 60px;
-  height: 100vh;
+  padding: 90px;
+}
+
+.registerTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .registerForm {
   display: flex;
   flex-direction: column;
   width: 300px;
-  margin: 0 auto;
-  gap: 10px;
 }
 
-.forumForm input {
-  margin-bottom: 10px;
+.registerForm label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.registerForm input {
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.registerBtn {
+  background-color: #ff4500;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.registerBtn:hover {
+  background-color: #e63c00;
+}
+
+.register p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register p a {
+  color: #ff4500;
+  text-decoration: none;
+}
+
+.register p a:hover {
+  text-decoration: underline;
+}
+
+/*---------------------------------------*/
+
+
+.create-thread {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
-/* Forum home */
 
-.forum h1 {
-  text-align: center;
-  font-size: 2rem;
-}
-
-.forum__container select{
-color: #000;
-}
-
-.forum {
-  margin: 2vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  margin-top: 100px;
-  gap: 3vh;
-  height: 100vh;
-}
 
 .forumTitle {
   font-size: 1.2rem;
   padding-bottom: 10px;
 }
 
-.create-thread {
-  border: 1px solid white;
-  border-radius: 10px;
-  width: 90%;
+.forumForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.forum__container input,
+.forum__container select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.forumBtn {
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.forumBtn:hover {
+  background-color: #ff6347;
+}
+
+.thread__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
   max-width: 700px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   padding: 20px;
 }
 
 .thread__item {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid white;
-  padding: 20px;
-}
-.thread__container {
-  display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 90%;
-  max-width: 700px;
-  border: 1px solid white;
-  border-radius: 10px;
-  padding: 20px;
 }
+
+.thread__item p {
+  margin: 0;
+}
+
+.thread__item p:first-child {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.thread__item p:last-child {
+  font-size: 0.8rem;
+  color: #999;
+}
+
 .react__container {
   display: flex;
-  flex-direction: row;
-  gap: 15px;
+  align-items: center;
+  gap: 10px;
 }
-.thread__container svg {
-  width: 20px;
+
+.react__container svg {
+  width: 16px;
+  fill: #999;
+  cursor: pointer;
 }
-.likes__container {
+
+.react__container svg:hover {
+  fill: #ff4500;
+}
+
+.thread__item:last-child {
+  border-bottom: none;
+}
+
+/* Tag Filters */
+
+.tag-filters {
   display: flex;
-  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tag-filters label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: #666;
+  cursor: pointer;
+}
+.tag-filters input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  outline: none;
+  cursor: pointer;
+}
+
+.tag-filters input[type="checkbox"]:checked {
+  border-color: #ff4500; 
+  background-color: #ff4500; 
+}
+
+.tag-filters span {
+  font-size: 0.9rem;
+}
+
+.tag-filters input[type="checkbox"]:checked::before {
+  background-color: #fff; 
+}
+
+.tag-filters span:hover {
+  color: #ff4500;
+}
+
+/* ShowAlert Component */
+
+.show-alert {
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-}
-/* Replies */
-
-.replies,
-.replies form {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  background-color: #ff6347;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
 }
 
-.replies form textarea {
-  color: black;
+.show-alert .alert-icon {
+  font-size: 1.2rem;
+}
+
+.show-alert p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
 }

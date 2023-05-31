@@ -60,13 +60,25 @@ app.post("/api/register", async (req, res) => {
 });
 
 app.post("/api/create/thread", async (req, res) => {
-  const { title, description, userId, tags } = req.body;
+  const { title, description, id, tags } = req.body; // Hier heb ik "userId" gewijzigd in "id" om overeen te komen met uw "forum.js"
+
   let threadId = generateID();
+
+  // Vind de gebruiker in de "users" array op basis van de "id"
+  const user = users.find((user) => user.id === id);
+
+  // Als de gebruiker niet bestaat, stuur dan een foutmelding
+  if (!user) {
+    return res.json({ error_message: "User not found" });
+  }
+
+  // Voeg de "username" van de gebruiker toe aan de thread data
   threadList.unshift({
     id: threadId,
     title,
     description,
-    userId,
+    userId: id,
+    username: user.username, // Hier voeg ik de "username" toe
     tags,
     replies: [],
     likes: [],
