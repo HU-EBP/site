@@ -13,6 +13,10 @@
   font-size: 2rem;
 }
 
+select {
+  color: black;
+}
+
 /*---------------------------------------*/
 .login {
   display: flex;
@@ -136,7 +140,6 @@
 
 /*---------------------------------------*/
 
-
 .create-thread {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -144,8 +147,6 @@
   width: 100%;
   max-width: 700px;
 }
-
-
 
 .forumTitle {
   font-size: 1.2rem;
@@ -198,7 +199,8 @@
   padding: 10px;
   margin: 10px;
   max-width: 600px;
-  width: 100%;}
+  width: 100%;
+}
 
 .thread__item p {
   margin: 0;
@@ -230,10 +232,6 @@
   fill: #ff4500;
 }
 
-
-
-
-
 .react__container {
   display: flex;
   align-items: center;
@@ -249,8 +247,6 @@
 .react__container svg:hover {
   fill: #ff4500;
 }
-
-
 
 /* Tag Filters */
 
@@ -279,8 +275,8 @@
 }
 
 .tag-filters input[type="checkbox"]:checked {
-  border-color: #ff4500; 
-  background-color: #ff4500; 
+  border-color: #ff4500;
+  background-color: #ff4500;
 }
 
 .tag-filters span {
@@ -288,7 +284,7 @@
 }
 
 .tag-filters input[type="checkbox"]:checked::before {
-  background-color: #fff; 
+  background-color: #fff;
 }
 
 .tag-filters span:hover {
@@ -328,7 +324,6 @@
   margin-top: 90px;
   margin-bottom: 20px; /* Added margin-bottom */
 }
-
 
 .repliesTitle {
   font-size: 2rem;
@@ -452,5 +447,4 @@
   z-index: 1;
   margin-top: 100px;
   margin-right: 90px;
-
 }
