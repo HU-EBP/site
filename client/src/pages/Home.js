@@ -3,6 +3,7 @@ import Playbutton from "../components/Playbutton";
 import "../index.css";
 import "../components/CallToAction.css";
 import About from "../components/about";
+import ChatBot from "../components/ChatBot";
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
       {/* Gameplayer */}
       {/* <GamePlayer /> */}
       <About />
+      <ChatBot />
       <div></div>
     </div>
   );
