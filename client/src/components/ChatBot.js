@@ -1,21 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../components/ChatBot.css";
-import "@chatscope/chat-ui-kit-react";
-import {
-  MainContainer,
-  ChatContainer,
-  MessageList,
-  Message,
-  MessageInput,
-  TypingIndicator,
-} from "@chatscope/chat-ui-kit-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const API_KEY = "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";
-// "Explain things like you would to a 10 year old learning how to code."
+const API_KEY = "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";
+
 const systemMessage = {
-  //  Explain things like you're talking to a software professional with 5 years of experience.
   role: "system",
   content:
     "Explain things like you're talking to a software professional with 2 years of experience.",
@@ -24,7 +13,7 @@ const systemMessage = {
 function ChatBot() {
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm ChatGPT! Ask me anything!",
+      message: "Hello, I'm the Spark-assistant! How can I help you today?",
       sentTime: "just now",
       sender: "ChatGPT",
     },
@@ -42,18 +31,11 @@ function ChatBot() {
 
     setMessages(newMessages);
 
-    // Initial system message to determine ChatGPT functionality
-    // How it responds, how it talks, etc.
     setIsTyping(true);
     await processMessageToChatGPT(newMessages);
   };
 
   async function processMessageToChatGPT(chatMessages) {
-    // messages is an array of messages
-    // Format messages for chatGPT API
-    // API is expecting objects in format of { role: "user" or "assistant", "content": "message here"}
-    // So we need to reformat
-
     let apiMessages = chatMessages.map((messageObject) => {
       let role = "";
       if (messageObject.sender === "ChatGPT") {
@@ -64,15 +46,9 @@ function ChatBot() {
       return { role: role, content: messageObject.message };
     });
 
-    // Get the request body set up with the model we plan to use
-    // and the messages which we formatted above. We add a system message in the front to'
-    // determine how we want chatGPT to act.
     const apiRequestBody = {
       model: "gpt-3.5-turbo",
-      messages: [
-        systemMessage, // The system message DEFINES the logic of our chatGPT
-        ...apiMessages, // The messages from our chat with ChatGPT
-      ],
+      messages: [systemMessage, ...apiMessages],
     };
 
     await fetch("https://api.openai.com/v1/chat/completions", {
@@ -108,28 +84,37 @@ function ChatBot() {
         console.error("A problem occurred with the fetch operation: ", error);
       });
   }
-
+  const [inputMessage, setInputMessage] = useState("");
   return (
-    <div className="App">
+    <div className="ChatBot">
       <div style={{ position: "relative", height: "800px", width: "700px" }}>
-        <MainContainer>
-          <ChatContainer>
-            <MessageList
-              scrollBehavior="smooth"
-              typingIndicator={
-                isTyping ? (
-                  <TypingIndicator content="ChatGPT is typing" />
-                ) : null
-              }
-            >
-              {messages.map((message, i) => {
-                console.log(message);
-                return <Message key={i} model={message} />;
-              })}
-            </MessageList>
-            <MessageInput placeholder="Type message here" onSend={handleSend} />
-          </ChatContainer>
-        </MainContainer>
+        <div className="chatContainer">
+          <div className="messageList">
+            {messages.map((message, i) => {
+              return (
+                <div key={i} className={message.sender}>
+                  <p>{message.message}</p>
+                </div>
+              );
+            })}
+            {isTyping && <p>Spark assistant is typing...</p>}
+          </div>
+          <input
+            type="text"
+            className="messageInput"
+            placeholder="Type message here"
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+          />
+          <button
+            onClick={() => {
+              handleSend(inputMessage);
+              setInputMessage("");
+            }}
+          >
+            Send
+          </button>
+        </div>
       </div>
     </div>
   );
