@@ -1,3 +1,7 @@
+* {
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
 /* ChatBot.css */
 .ChatBot {
   display: flex;
@@ -34,7 +38,7 @@
   align-self: flex-end;
   max-width: 80%;
   right: 0;
-  background-color: #caf0f8;
+  background-color: #a7988b;
   padding: 10px;
   border-radius: 5px;
 }

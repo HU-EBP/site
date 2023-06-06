@@ -2,12 +2,12 @@ import React from "react";
 import "../components/ChatBot.css";
 import { useState } from "react";
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 const systemMessage = {
   role: "system",
   content:
-    "Explain things like you're talking to a software professional with 2 years of experience.",
+    "Je bent een chatbot (Spark-assistant) op een website van een game. Zorg dat je kindvriendelijk bent en geen schokkende of rare dingen zegt. Maak altijd een grapje in je antwoord. Ik geef je alle informatie over de game die je nodig hebt. Gebruikers kunnen in elke taal met je praten. Je moet ze helpen met het oplossen van problemen en vragen over de game. Geef geen antwoorden op vragen die je niet begrijpt. Als je een vraag niet begrijpt, vraag dan om verduidelijking. Geef ook geen antwoorden op vragen die niet gerelateerd zijn aan het de game of aan de informatie die ik je hieronder verstrek.",
 };
 
 function ChatBot() {
@@ -105,6 +105,12 @@ function ChatBot() {
             placeholder="Type message here"
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSend(inputMessage);
+                setInputMessage("");
+              }
+            }}
           />
           <button
             onClick={() => {
