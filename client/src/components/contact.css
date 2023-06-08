@@ -1,0 +1,34 @@
+
+.contact-page{
+    box-shadow: 1px 1px 3px 2px white;
+display: block;
+background-color: black;
+margin: 200px auto;
+max-width: 500px;
+max-height: 500px;
+padding: 20px;
+
+
+
+
+}
+
+.contact-page input, textarea{
+display: flex;
+flex-direction: column; 
+width: 100%;
+margin: 10px auto;
+padding: 10px;
+border: 1px solid white
+}
+
+.message{
+color: black;
+
+}
+
+.contact-page span{
+color:#ff4500 ;
+
+
+}
