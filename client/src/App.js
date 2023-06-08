@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
 import Replies from "./pages/Replies";
 import Dashboard from "./pages/Dashboard";
+import Contact from "./pages/Contact";
 
 function App() {
   // Render the components within a Router to handle routing
@@ -22,6 +23,7 @@ function App() {
       <Route path="/register" component={Register} />
       <Route path="/replies" component={Replies} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/dashboard" component={Contact} />
     </Router>
   );
 }
