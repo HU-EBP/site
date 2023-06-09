@@ -46,7 +46,7 @@ function Navbar() {
             <Link to="/forum">Forum</Link>
           </li>
           <li>
-            <Link to="/contact">Contact Page</Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
             {isUserLoggedIn() ? (
