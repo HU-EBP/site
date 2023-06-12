@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../components/contact.css";
+import emailjs from '@emailjs/browser';
+
 
 const Contact = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Voorkomt dat het formulier de pagina herlaadt
+    e.preventDefault();  
 
-    // Plaats hier de code om de e-mail te verzenden
+    setShowAlert(true); 
+    
+  };
 
-    setShowAlert(true); // Toont de alert na het verzenden van de e-mail
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
   };
 
   return (
@@ -23,11 +37,11 @@ const Contact = () => {
         <h1>
           Contact <span>Here</span>
         </h1>
-        <input type="email" name="email" placeholder="Enter name" />
-        <input type="text" name="name" placeholder="Example@gmail.com" />
+        <input type="email" name="user_email" placeholder="Enter name" />
+        <input type="text" name="user_name" placeholder="Example@gmail.com" />
         <input type="text" name="subject" placeholder="Enter Subject" />
         <textarea className="message" id="30" rows="10" placeholder="type here..." />
-        <button type="submit">send</button>
+        <button value="send" type="submit">send</button>
       </form>
     </div>
   );
