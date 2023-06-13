@@ -2,7 +2,7 @@ import React from "react";
 import "../components/ChatBot.css";
 import { useState } from "react";
 
-const API_KEY = "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";
+const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
 const systemMessage = {
   role: "system",
