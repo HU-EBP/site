@@ -5,13 +5,6 @@ const LoginFrame = (props) => {
   //👇🏻 React Router's useNavigate hook
   const navigate = useNavigate();
 
-  const isUserLoggedIn = () => {
-    if (localStorage.getItem("_id")) {
-      return true;
-    }
-    return false;
-  };
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

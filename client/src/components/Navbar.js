@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../components/Navbar.css";
 import "../index.css";
 
@@ -41,6 +36,9 @@ function Navbar() {
         <ul>
           <li>
             <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/chat">Chat</Link>
           </li>
           <li>
             <Link to="/forum">Forum</Link>

@@ -9,6 +9,7 @@ import Replies from "./pages/Replies";
 import Dashboard from "./pages/Dashboard";
 import Contact from "./pages/Contact";
 
+import ChatBot from "./components/ChatBot";
 function App() {
   // Render the components within a Router to handle routing
   return (
@@ -22,7 +23,7 @@ function App() {
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={Register} />
       <Route path="/replies" component={Replies} />
-      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/chat" element={ChatBot} />
       <Route path="/contact" component={Contact} />
     </Router>
   );
