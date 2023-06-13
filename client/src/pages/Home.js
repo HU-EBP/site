@@ -2,7 +2,7 @@ import React from "react";
 import Playbutton from "../components/Playbutton";
 import "../index.css";
 import "../components/CallToAction.css";
-import About from "../components/about";
+import "../components/about.css";
 import ChatBot from "../components/ChatBot";
 
 function Home() {
@@ -17,8 +17,7 @@ function Home() {
       </div>
       {/* Gameplayer */}
       {/* <GamePlayer /> */}
-      <About />
-      <ChatBot />
+
       <div></div>
     </div>
   );

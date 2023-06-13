@@ -1,13 +1,14 @@
 import React from "react";
 import "../components/ChatBot.css";
 import { useState } from "react";
+import character from "../img/character.png";
 
 const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
 const systemMessage = {
   role: "system",
   content:
-    "Je bent een chatbot (Spark-assistant) op een website van een game. Zorg dat je kindvriendelijk bent en geen schokkende of rare dingen zegt. Maak altijd een grapje in je antwoord. Ik geef je alle informatie over de game die je nodig hebt. Gebruikers kunnen in elke taal met je praten. Je moet ze helpen met het oplossen van problemen en vragen over de game. Geef geen antwoorden op vragen die je niet begrijpt. Als je een vraag niet begrijpt, vraag dan om verduidelijking. Geef ook geen antwoorden op vragen die niet gerelateerd zijn aan het de game of aan de informatie die ik je hieronder verstrek.",
+    "Je bent een grappige en informatieve chatbot (Spark-assistant) op een website van een game. Grappen moeten wel kloppen, dus verzin geen dingen die niet waar zijn of die niet in de informatie staan. Geef beknopt antwoord op de vragen. Zorg dat je kindvriendelijk bent en geen schokkende of rare dingen zegt. Maak altijd een grapje in je antwoord. Ik geef je alle informatie over de game die je nodig hebt. Gebruikers kunnen in elke taal met je praten. Je moet ze helpen met het oplossen van problemen en vragen over de game. Geef geen antwoorden op vragen die je niet begrijpt. Als je een vraag niet begrijpt, vraag dan om verduidelijking. Als de gebruiker een vraag stelt die niet gerelateerd is aan de game of aan de informatie die ik je hieronder verstrek, geef dan zo kort mogelijk antwoord op de vraag en geef daarna aan dat je taak is om vragen over de game te beantwoorden. Hier is alle informatie die je nodig hebt: Spark is een game waar de gebruiker de basisconcepten van programmeren kan leren door puzzels op te lossen in het spel. Op dit moment heeft het spel twee levels: het introlevel en het eerste level. Er is ook een hometown, waar de speler kan rondlopen en huisjes binnen kan gaan om naar een level doorgestuurd te worden. Level 1 (introlevel): hier moet de speler de instructies volgen en zo kan hij de controls van het spel leren. Onderweg kan de speler een goblin verslaan door op hem te springen. Als de speler de goblin ergens aanraakt (behalve bovenop) gaat de speler dood en moet hij opnieuw beginnen. Om de deur te openen moet de speler klikken op “let DoorOpen = true” klikken, zodat de status van de deur verandert naar open. De deur gaat dan omhoog en vervolgens kan de speler het level voltooien. Level 2 (eerste echte level): De game en de website zijn gemaakt door een team wat bestaat uit May, Renske, Melvin, Joep en Tobias. Richting het einde van het project is daar ook nog Lisenca bijgekomen. Joep, May en Renske hebben voornamelijk de game gemaakt. Melvin en Tobias zijn ook met de game bezig geweest, maar zij kwamen er na een tijdje achter dat game development toch niet voor hen was weggelegd. Zij zijn toen een website voor de game gaan maken in React. Op die website staat ook deze chatbot. Ook is er een forum te vinden op de website waar gebruikers een account kunnen aanmaken om met andere gebruikers te communiceren op het forum. ",
 };
 
 function ChatBot() {
@@ -67,7 +68,6 @@ function ChatBot() {
       })
       .then((data) => {
         if (data && data.choices && data.choices.length > 0) {
-          console.log(data);
           setMessages([
             ...chatMessages,
             {
@@ -86,40 +86,49 @@ function ChatBot() {
   }
   const [inputMessage, setInputMessage] = useState("");
   return (
-    <div className="ChatBot">
-      <div style={{ position: "relative", height: "800px", width: "700px" }}>
-        <div className="chatContainer">
-          <div className="messageList">
-            {messages.map((message, i) => {
-              return (
-                <div key={i} className={message.sender}>
-                  <p>{message.message}</p>
-                </div>
-              );
-            })}
-            {isTyping && <p>Spark assistant is typing...</p>}
+    <div className="center">
+      <div className="row" id="chat">
+        <img src={character} alt="Character"></img>
+
+        <div className="ChatBot">
+          <div style={{ position: "relative" }}>
+            <div className="chatContainer">
+              <div className="messageList">
+                {messages.map((message, i) => {
+                  return (
+                    <div key={i} className={message.sender}>
+                      <p>{message.message}</p>
+                    </div>
+                  );
+                })}
+                {isTyping && <p>Spark assistant is typing...</p>}
+              </div>
+              <div id="ui">
+                <input
+                  required
+                  type="text"
+                  className="messageInput"
+                  placeholder="Type message here"
+                  value={inputMessage}
+                  onChange={(e) => setInputMessage(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleSend(inputMessage);
+                      setInputMessage("");
+                    }
+                  }}
+                />
+                <button
+                  onClick={() => {
+                    handleSend(inputMessage);
+                    setInputMessage("");
+                  }}
+                >
+                  Send
+                </button>
+              </div>
+            </div>
           </div>
-          <input
-            type="text"
-            className="messageInput"
-            placeholder="Type message here"
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                handleSend(inputMessage);
-                setInputMessage("");
-              }
-            }}
-          />
-          <button
-            onClick={() => {
-              handleSend(inputMessage);
-              setInputMessage("");
-            }}
-          >
-            Send
-          </button>
         </div>
       </div>
     </div>

@@ -97,3 +97,7 @@ nav .nav-close-btn {
     font-size: 1.5rem;
   }
 }
+
+#chat {
+  top: 4000px;
+}

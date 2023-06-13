@@ -8,19 +8,27 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  height: 100%;
   font-family: Arial, sans-serif;
 }
 
 .chatContainer {
-  border: 1px solid #ccc;
   border-radius: 5px;
   padding: 20px;
   overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-height: 50vh;
+
   overflow: scroll;
+  resize: both;
+  min-width: 450px;
+  min-height: 300px;
+}
+
+#ui button {
+  width: 100%;
+  margin-top: 5px;
 }
 
 .messageList {
@@ -57,4 +65,30 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.row img {
+  height: 300px;
+  object-fit: contain;
+}
+
+.chatContainer,
+.chatContainer button,
+.chatContainer input {
+  font-size: 0.8rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }

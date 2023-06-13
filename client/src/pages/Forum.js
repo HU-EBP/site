@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Likes from "../utils/Likes";
 import Comments from "../utils/Comments";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../components/forum.css";
-import ShowAlert from "../components/ShowAlert";
 
 // Define a Forum component
 const Forum = () => {

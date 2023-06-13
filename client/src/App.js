@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
 import Replies from "./pages/Replies";
-import Dashboard from "./pages/Dashboard";
 
+import ChatBot from "./components/ChatBot";
 function App() {
   // Render the components within a Router to handle routing
   return (
@@ -21,7 +21,7 @@ function App() {
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={Register} />
       <Route path="/replies" component={Replies} />
-      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/chat" element={ChatBot} />
     </Router>
   );
 }
