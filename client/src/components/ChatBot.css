@@ -6,6 +6,7 @@
 .ChatBot {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   padding: 20px;
   height: 100%;
@@ -15,14 +16,17 @@
 .chatContainer {
   border-radius: 5px;
   padding: 20px;
+  margin-top: 20px;
   overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  box-shadow: 1px 1px 10px 5px #33140c;
   overflow: scroll;
   resize: both;
   min-width: 450px;
+  max-width: 800px;
+  max-height: 700px;
   min-height: 300px;
 }
 
@@ -67,19 +71,6 @@
   width: 100%;
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.row img {
-  height: 300px;
-  object-fit: contain;
-}
-
 .chatContainer,
 .chatContainer button,
 .chatContainer input {
@@ -91,4 +82,5 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  flex-direction: column;
 }
