@@ -1,26 +1,18 @@
-import React, { useState, useRef } from "react";
 import "../components/contact.css";
-import emailjs from '@emailjs/browser';
+import React, { useState, useRef } from 'react';
+import emailjs from 'emailjs-com';
 
-
-const Contact = () => {
-  const [showAlert, setShowAlert] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();  
-
-    setShowAlert(true); 
-    
-  };
-
+export const Contact = () => {
   const form = useRef();
+  const [showAlert, setShowAlert] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+    emailjs.sendForm('gmail', 'template_ck3w84r', form.current, 'hKyvDQkLDIozlHXyo')
       .then((result) => {
           console.log(result.text);
+          setShowAlert(true); // Stel showAlert in op true na succesvol verzenden van de e-mail
       }, (error) => {
           console.log(error.text);
       });
@@ -33,12 +25,12 @@ const Contact = () => {
           Mail verzonden!
         </div>
       )}
-      <form className="contact-page" onSubmit={handleSubmit}>
+      <form ref={form} onSubmit={sendEmail} className="contact-page">
         <h1>
           Contact <span>Here</span>
         </h1>
-        <input type="email" name="user_email" placeholder="Enter name" />
-        <input type="text" name="user_name" placeholder="Example@gmail.com" />
+        <input type="email" name="user_email" placeholder="Example@gmail.com" />
+        <input type="text" name="user_name" placeholder="Enter Name" />
         <input type="text" name="subject" placeholder="Enter Subject" />
         <textarea className="message" id="30" rows="10" placeholder="type here..." />
         <button value="send" type="submit">send</button>
@@ -48,4 +40,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
