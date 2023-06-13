@@ -1,0 +1,86 @@
+* {
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+/* ChatBot.css */
+.ChatBot {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.chatContainer {
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 1px 1px 10px 5px #33140c;
+  overflow: scroll;
+  resize: both;
+  min-width: 450px;
+  max-width: 800px;
+  max-height: 700px;
+  min-height: 300px;
+}
+
+#ui button {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.messageList {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.user,
+.ChatGPT {
+  margin: 10px 0;
+}
+
+.user {
+  align-self: flex-end;
+  max-width: 80%;
+  right: 0;
+  background-color: #a7988b;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.ChatGPT {
+  align-self: flex-start;
+  background-color: var(--mainColorLight);
+  max-width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.messageInput {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.chatContainer,
+.chatContainer button,
+.chatContainer input {
+  font-size: 0.8rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}

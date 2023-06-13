@@ -1,7 +1,5 @@
-// Import necessary packages and hooks
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import ShowAlert from "../components/ShowAlert";
+import { useParams } from "react-router-dom";
 
 // Define Replies component
 const Replies = () => {
@@ -9,9 +7,8 @@ const Replies = () => {
   const [replyList, setReplyList] = useState([]);
   const [reply, setReply] = useState("");
   const [title, setTitle] = useState("");
-  const navigate = useNavigate();
+
   const { id } = useParams(); // Get thread id from URL parameters
-  const [showAlert, setShowAlert] = useState(false);
 
   // Fetch replies when component mounts or thread id changes
   useEffect(() => {

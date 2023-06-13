@@ -31,7 +31,7 @@ nav ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 4rem;
   list-style: none;
 }
 
@@ -96,4 +96,8 @@ nav .nav-close-btn {
   nav a {
     font-size: 1.5rem;
   }
+}
+
+#chat {
+  top: 4000px;
 }

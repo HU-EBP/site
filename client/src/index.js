@@ -7,7 +7,7 @@ import Forum from "./pages/Forum";
 import Replies from "./pages/Replies";
 import Register from "./pages/Register";
 import LoginPage from "./pages/LoginPage";
-import Dashboard from "./pages/Dashboard";
+import ChatBot from "./components/ChatBot";
 import Contact from "./pages/Contact";
 
 export default function App() {
@@ -23,7 +23,7 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/:id/replies" element={<Replies />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/chat" element={<ChatBot />} />
           <Route path="contact" element={<Contact />} />
         </Route>
               
