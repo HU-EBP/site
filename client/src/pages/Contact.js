@@ -7,23 +7,36 @@ export const ContactUs = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+  
     emailjs.sendForm('service_34ej9ku', 'template_ck3w84r', form.current, 'i2njx-0K_ARFwMto2')
       .then((result) => {
         console.log(result.text);
+        form.current.reset();
+        showAlert('Mail verzonden!', true);
       }, (error) => {
         console.log(error.text);
       });
-
-    // Reset het formulier na verzenden
-    form.current.reset();
+  };
+  
+  const showAlert = (message, success) => {
+    const alertDiv = document.createElement('div');
+    alertDiv.textContent = message;
+    alertDiv.className = success ? 'alert success' : 'alert error';
+  
+    const contactPage = document.querySelector('.contact-page');
+    contactPage.appendChild(alertDiv);
+  
+    setTimeout(() => {
+      alertDiv.remove();
+    }, 3000);
   };
 
+  
   return (
     <form ref={form} onSubmit={sendEmail} className="contact-page">
-      <h1>
+      <div className='titel'><h1>
         Contact <span>Here</span>
-      </h1>
+      </h1></div>
       <label>Naam</label>
       <input type="text" name="user_name" />
       <label>Email</label>
@@ -36,3 +49,4 @@ export const ContactUs = () => {
 };
 
 export default ContactUs;
+
