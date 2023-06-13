@@ -42,3 +42,106 @@
   text-shadow: 3px 3px 3px #000;
   transition: 0.3s ease-in-out;
 }
+
+#character img {
+  width: 250px;
+  height: 100%;
+  object-fit: contain;
+}
+* {
+  color: #fff;
+}
+.about-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  color: #fff;
+  gap: 4rem;
+  transition: 0.5s;
+}
+
+.about-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#character-text p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+#aboutpage-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.learnitems-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.learn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.learn-item {
+  border-top: 1px solid rgba(106, 32, 13, 0.7);
+  border-bottom: 1px solid rgba(106, 32, 13, 0.7);
+
+  padding: 1rem;
+  text-align: center;
+}
+
+.learn-item p {
+  font-size: 0.8rem;
+  padding: 0.5rem 0;
+  line-height: 1.3;
+}
+
+@media screen and (min-width: 1024px) {
+  #character-text {
+    width: 60%;
+  }
+  #character-text p {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    padding: 0 3rem;
+  }
+  .about-container h1 {
+    font-size: 1.5rem;
+  }
+  #character-text {
+    width: 100%;
+  }
+  #character-text p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 368px) {
+  .about-container {
+    padding: 0 1rem;
+  }
+
+  .learn-item {
+    width: 90%;
+  }
+}
