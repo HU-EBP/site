@@ -4,6 +4,7 @@
   max-width: 500px;
   margin: 15px;
   background-color: #2384d3 !important;
+  border: none !important;
   color: white;
   position: fixed;
   bottom: 1rem;
