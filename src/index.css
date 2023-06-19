@@ -121,3 +121,11 @@ input {
   cursor: pointer;
   transition: 0.3s;
 }
+
+#warning {
+  color: var(--secondairyColor);
+  font-size: 0.7rem;
+  text-align: center;
+  margin: 0;
+  text-wrap: nowrap;
+}

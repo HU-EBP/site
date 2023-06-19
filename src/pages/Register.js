@@ -19,7 +19,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const signUp = () => {
-    fetch("http://localhost:4000/api/register", {
+    fetch("http://145.89.192.177:8080/api/register", {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -64,7 +64,10 @@ const Register = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">
+          Password<span id="warning"> - not encrypted!</span>
+        </label>
+
         <input
           type="password"
           name="password"
@@ -73,6 +76,7 @@ const Register = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
         <button className="registerBtn">REGISTER</button>
         <p>
           Have an account? <Link to="/login">Sign in</Link>

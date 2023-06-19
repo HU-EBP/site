@@ -53,7 +53,7 @@ const LoginFrame = (props) => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <label htmlFor="password">Password</label>
-        <p>hoi</p>
+
         <input
           type="password"
           name="password"
@@ -62,6 +62,7 @@ const LoginFrame = (props) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
         <button className="loginBtn">SIGN IN</button>
         <p>
           Don't have an account? <Link to="/register">Create one</Link>
