@@ -14,7 +14,7 @@ const LoginFrame = (props) => {
   };
 
   const loginUser = () => {
-    fetch("http://localhost:4000/api/login", {
+    fetch("http://145.89.192.177:8080/api/login", {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -53,6 +53,7 @@ const LoginFrame = (props) => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <label htmlFor="password">Password</label>
+        <p>hoi</p>
         <input
           type="password"
           name="password"

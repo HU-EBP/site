@@ -14,7 +14,7 @@ const Replies = () => {
   useEffect(() => {
     const fetchReplies = () => {
       // Send POST request to server to fetch replies
-      fetch("http://localhost:4000/api/thread/replies", {
+      fetch("http://145.89.192.177:8080/api/thread/replies", {
         method: "POST",
         body: JSON.stringify({
           id,
@@ -37,7 +37,7 @@ const Replies = () => {
   // Function to add reply to thread
   const addReply = () => {
     // Send POST request to server to add reply
-    fetch("http://localhost:4000/api/create/reply", {
+    fetch("http://145.89.192.177:8080/api/create/reply", {
       method: "POST",
       body: JSON.stringify({
         id,
