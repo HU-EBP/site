@@ -32,14 +32,14 @@ const Forum = () => {
   // Run when the component is first rendered
   useEffect(() => {
     // If there is an id item in local storage, fetch the list of all threads
-    fetch("http://localhost:4000/api/all/threads")
+    fetch("http://145.89.192.177:4000/api/all/threads")
       .then((res) => res.json())
       .then((data) => setThreadList(data.threads)) // Update the thread list state with the data from the server
       .catch((err) => console.error(err)); // Log any errors
   }, [navigate]); // Re-run when the navigate function changes
 
   const createThread = () => {
-    fetch("http://localhost:4000/api/create/thread", {
+    fetch("http://145.89.192.177:4000/api/create/thread", {
       method: "POST",
       body: JSON.stringify({
         title,
