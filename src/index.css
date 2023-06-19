@@ -26,55 +26,6 @@ body {
 
 /* GAMEPLAYER */
 
-/* Loading... */
-.loader {
-  color: var(--textColor);
-  height: 100%;
-  font-size: 0.8rem;
-}
-
-/* Gameframe mobile */
-.gameframe-mobile {
-  color: var(--textColor);
-  text-align: center;
-  border: 1px solid var(--textColor);
-  margin: 1rem;
-  max-width: 800px;
-}
-
-.gameframe-mobile h2 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  padding: 3rem;
-}
-
-/* Titel */
-.thegametitle {
-  color: var(--textColor);
-  text-align: center;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  padding: 1rem;
-}
-
-/* Game desktop */
-.game-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 1920px;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-iframe#game {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1920px;
-  border: none;
-}
-
 @media screen and (min-width: 768px) {
   .game-container {
   }
