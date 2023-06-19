@@ -15,7 +15,7 @@ header {
   background-color: var(--mainColor);
   color: var(--textColor);
   position: fixed;
-  width: 100%;
+  width: 100vw;
   z-index: 100;
   gap: 1rem;
   top: 0;
@@ -44,53 +44,42 @@ nav a:hover {
   color: var(--secondairyColor);
 }
 
-header .nav-btn {
+.nav-btn {
+  background: none;
+  border: none;
+  color: var(--textColor);
+  font-size: 2rem;
+  cursor: pointer;
   display: none;
+  z-index: 10000;
 }
 
-nav .nav-close-btn {
-  display: none;
+header h3 {
+  z-index: 10000;
 }
 
 @media only screen and (max-width: 1024px) {
+  .nav-btn {
+    display: block;
+  }
+
   nav ul {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
     background-color: var(--mainColor);
-    transform: translateY(-100vh);
+    position: fixed;
+    width: 100%;
+    top: 80px; /* Hoogte van de header */
+    bottom: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-120%);
   }
 
-  nav.responsive_nav ul {
-    animation: showNav 0.5s forwards;
-  }
-
-  @keyframes showNav {
-    0% {
-      transform: translateY(-100vh);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  nav .nav-close-btn {
-    display: block;
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-  }
-
-  header .nav-btn {
-    display: block;
+  .responsive_nav ul {
+    transform: translateY(0);
   }
 
   nav a {

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+// import bars and x icons
+import { FaBars } from "react-icons/fa";
 import "../components/Navbar.css";
 import "../index.css";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
   const signOut = () => {
@@ -20,48 +23,50 @@ function Navbar() {
     return false;
   };
 
-  // const isUserLoggedIn = () => {
-  //   if (localStorage.getItem("_id")) {
-  //     return null;
-  //   }
-  //   return <Link to="/login">Sign in</Link>;
-  // };
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <header>
       <h3>
         <Link to="/"> Spark </Link>
       </h3>
-      <nav>
+      <nav className={isOpen ? "responsive_nav" : ""}>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={toggleMenu}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/chat">Chat</Link>
+            <Link to="/chat" onClick={toggleMenu}>
+              Chat
+            </Link>
           </li>
           <li>
-            <Link to="/forum">Forum</Link>
+            <Link to="/forum" onClick={toggleMenu}>
+              Forum
+            </Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact" onClick={toggleMenu}>
+              Contact
+            </Link>
           </li>
           <li>
             {isUserLoggedIn() ? (
-              <>
-                {" "}
-                <button onClick={signOut}>Sign out</button>
-              </>
+              <button onClick={signOut}>Sign out</button>
             ) : (
-              <>
-                {" "}
-                <a href="/login">
-                  <button>Sign in</button>
-                </a>
-              </>
+              <a href="/login">
+                <button>Sign in</button>
+              </a>
             )}
           </li>
         </ul>
+        <button onClick={toggleMenu} className="nav-btn">
+          {isOpen ? "X" : <FaBars />}
+        </button>
       </nav>
     </header>
   );
